@@ -994,3 +994,678 @@ nav a:hover::after {
 
         .social-item {
             display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        footer {
+            position: relative;
+            padding: 3rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .theme-toggle {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 50px;
+                height: 50px;
+            }
+
+            nav {
+                padding: 1.5rem 2rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+                font-size: 0.9rem;
+            }
+
+            .hero-title {
+                font-size: 4rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+                letter-spacing: 4px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            section {
+                padding: 4rem 2rem;
+            }
+
+            .gallery-container {
+                height: 350px;
+            }
+
+            .slide {
+                width: 80%;
+            }
+
+            body {
+                cursor: default;
+            }
+
+            .cursor, .cursor-follower {
+                display: none;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    <div class="grid-background"></div>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+        <svg class="moon-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg class="sun-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2"/>
+            <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2"/>
+            <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2"/>
+            <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2"/>
+        </svg>
+    </button>
+
+    <nav>
+        <div class="logo">
+            <img src="jayc-logo-dark.png" alt="JayC Logo" class="logo-dark">
+            <img src="jayc-logo-light.png" alt="JayC Logo" class="logo-light">
+        </div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#mixes">Mixes</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#book">Book</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+        <h1 class="hero-title">JAYC</h1>
+        <p class="hero-subtitle">Profesional DJ</p>
+        <button class="hero-cta" onclick="document.querySelector('#book').scrollIntoView({behavior: 'smooth'})">
+            <span>Book Now</span>
+        </button>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <h2 class="section-title fade-in">About Me</h2>
+        <div class="about-content">
+            <div class="about-text fade-in">
+                <p>Hey! I'm JayC, and I'm just starting my journey as a DJ. Music has always been my passion, and now I'm taking the leap into creating experiences through sound. Im a passionate DJ specializing in breakbeat and indobounce music. I bring fresh energy and modern vibes to every event I play at.</p>
+                <br>
+                <p>Whether it's a house party, wedding, or club night, I create unforgettable experiences through carefully curated music that keeps the crowd moving all night long.</p>
+            </div>
+            <div class="about-image fade-in">
+                <img src="jayc-photo.jpg" alt="JayC DJ Photo">
+            </div>
+        </div>
+    </section>
+
+    <!-- MY MIXES -->
+    <section id="mixes">
+        <h2 class="section-title fade-in">My Mixes</h2>
+        <div style="max-width: 900px; margin: 0 auto;">
+            <div class="fade-in" style="text-align: center; margin-bottom: 3rem;">
+                <p style="font-size: 1.3rem; color: var(--text-secondary);">
+                    Check out my latest mixes and experience my signature sound!
+                </p>
+            </div>
+            
+            <div class="mix-card fade-in" style="max-width: 800px; margin: 0 auto 2rem auto; background: var(--card-bg); border: 2px solid var(--border-color); padding: 3rem;">
+                <h3 class="mix-title" style="font-family: 'Orbitron', sans-serif; font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--neon-cyan); text-align: center;">Villa an Tetui - Live Mixing</h3>
+                <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 2rem; text-align: center; font-size: 1.1rem;">
+                    My latest live set showcasing breakbeat and indobounce vibes. Press play and feel the energy!
+                </p>
+                
+                <div style="margin-top: 2rem; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 246, 255, 0.2);">
+                    <iframe 
+                        width="100%" 
+                        height="300" 
+                        scrolling="no" 
+                        frameborder="no" 
+                        allow="autoplay" 
+                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2261787533&color=%2300f6ff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+                    </iframe>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://soundcloud.com/rhaji-firdaus" target="_blank" style="display: inline-block; padding: 1rem 2.5rem; background: transparent; border: 2px solid var(--neon-cyan); color: var(--neon-cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; transition: all 0.3s ease;">
+                    View All Mixes on SoundCloud
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+        <h2 class="section-title fade-in">Services</h2>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">🎉</div>
+                <h3 class="service-name">Private Parties</h3>
+                <p class="service-desc">Birthday celebrations, house parties, and intimate gatherings with personalized music selection</p>
+                <p class="service-price">Rp 600k - 5jt</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">💍</div>
+                <h3 class="service-name">Weddings & Corporate</h3>
+                <p class="service-desc">Professional DJ services for weddings and corporate events with MC/hype man included</p>
+                <p class="service-price">Rp 1jt - 3jt</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">🎵</div>
+                <h3 class="service-name">Club Nights</h3>
+                <p class="service-desc">High-energy club sets with breakbeat and indobounce specialty</p>
+                <p class="service-price">Rp 600k - 1.5jt/hour</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing">
+        <h2 class="section-title fade-in">Pricing Packages</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card fade-in">
+                <h3 class="package-name">House Party</h3>
+                <div class="package-price">Rp 750k - 2.5jt</div>
+                <div class="package-duration">1-3 Hours</div>
+                <ul class="package-features">
+                    <li>DJ Controller & Laptop</li>
+                    <li>Music Curation</li>
+                    <li>Request Friendly</li>
+                    <li>Perfect for small gatherings</li>
+                </ul>
+                <button class="book-btn" onclick="document.querySelector('#book').scrollIntoView({behavior: 'smooth'})">Book Now</button>
+            </div>
+            <div class="pricing-card featured fade-in">
+                <h3 class="package-name">Professional</h3>
+                <div class="package-price">Rp 1jt - 3jt</div>
+                <div class="package-duration">2-3 Hours</div>
+                <ul class="package-features">
+                    <li>DJ Equipment Included</li>
+                    <li>MC / Hype Man Services</li>
+                    <li>Custom Playlist</li>
+                    <li>Wedding & Corporate Ready</li>
+                    <li>50% Deposit Required</li>
+                </ul>
+                <button class="book-btn" onclick="document.querySelector('#book').scrollIntoView({behavior: 'smooth'})">Book Now</button>
+            </div>
+            <div class="pricing-card fade-in">
+                <h3 class="package-name">Premium Event</h3>
+                <div class="package-price">Rp 2jt - 5jt</div>
+                <div class="package-duration">1-4 Hours</div>
+                <ul class="package-features">
+                    <li>Full DJ Setup</li>
+                    <li>MC Services</li>
+                    <li>Extended Play Time</li>
+                    <li>Outdoor Events Capable*</li>
+                    <li>Priority Booking</li>
+                </ul>
+                <button class="book-btn" onclick="document.querySelector('#book').scrollIntoView({behavior: 'smooth'})">Book Now</button>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 3rem; color: var(--text-secondary);">
+            <p>*Outdoor events subject to weather conditions. Equipment safety is priority.</p>
+            <p style="margin-top: 1rem;">📧 <strong>Note:</strong> Speaker system NOT included (client provides venue sound system)</p>
+            <p style="margin-top: 1rem;">🚗 <strong>Transportation:</strong> Events outside Bekasi area require separate transportation fee</p>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+        <h2 class="section-title fade-in">Past Events</h2>
+        <div class="gallery-container fade-in">
+            <div class="slider" id="slider">
+                <!-- Add your event photos here -->
+                <div class="slide active">
+                    <img src="event1.jpg" alt="Event 1" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23333%22 width=%22400%22 height=%22300%22/%3E%3Ctext fill=%22%2300f6ff%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2224%22%3EEvent Photo 1%3C/text%3E%3C/svg%3E'">
+                </div>
+                <div class="slide next">
+                    <img src="event2.jpg" alt="Event 2" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23333%22 width=%22400%22 height=%22300%22/%3E%3Ctext fill=%22%2300f6ff%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2224%22%3EEvent Photo 2%3C/text%3E%3C/svg%3E'">
+                </div>
+                <div class="slide">
+                    <img src="event3.JPG" alt="Event 3" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23333%22 width=%22400%22 height=%22300%22/%3E%3Ctext fill=%22%2300f6ff%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2224%22%3EEvent Photo 3%3C/text%3E%3C/svg%3E'">
+                </div>
+                <div class="slide">
+                    <img src="event4.JPG" alt="Event 3" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23333%22 width=%22400%22 height=%22300%22/%3E%3Ctext fill=%22%2300f6ff%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2224%22%3EEvent Photo 3%3C/text%3E%3C/svg%3E'">
+                </div>
+            </div>
+            <div class="slider-controls">
+                <button class="slider-btn" onclick="prevSlide()">‹</button>
+                <button class="slider-btn" onclick="nextSlide()">›</button>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 5rem; color: var(--text-secondary);">
+            <p>Add your event photos as: event1.jpg, event2.jpg, event3.jpg, etc.</p>
+        </div>
+    </section>
+
+    <!-- EQUIPMENT -->
+    <section id="equipment">
+        <h2 class="section-title fade-in">Equipment</h2>
+        <div class="equipment-grid">
+            <div class="equipment-item fade-in">
+                <div class="equipment-icon">🎚️</div>
+                <h3 class="equipment-name">DJ Controller</h3>
+                <p class="equipment-desc">PIONEER DDJ-REV1</p>
+            </div>
+            <div class="equipment-item fade-in">
+                <div class="equipment-icon">💻</div>
+                <h3 class="equipment-name">Laptop</h3>
+                <p class="equipment-desc">ACER NITRO V 15</p>
+            </div>
+            <div class="equipment-item fade-in">
+                <div class="equipment-icon">🎵</div>
+                <h3 class="equipment-name">Software</h3>
+                <p class="equipment-desc">Virtual DJ</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 3rem; color: var(--text-secondary);">
+            <p>⚠️ Speaker system & RCA cables NOT included (client provides venue sound system)</p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <h2 class="section-title fade-in">Frequently Asked Questions</h2>
+        <div class="faq-container fade-in">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Do you take requests?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! I'm always happy to take requests and work with you to create the perfect playlist for your event. Just let me know your preferences in advance.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What music genres do you play?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Breakbeat and indobounce are my specialties - these high-energy genres are what I do best. But I'm versatile and can mix other genres to match your event's vibe. Whether you want hip-hop, house, EDM, or Top 40 hits, I'll read the crowd and keep the energy flowing!</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How far in advance should I book?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>I recommend booking at least 1 month in advance to secure your date, especially for weekend events. However, reach out anytime - I may have last-minute availability!</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Do you provide equipment?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>I provide my professional DJ controller (PIONEER DDJ-REV1), laptop (ACER NITRO V 15), and chargers. However, I do NOT provide speaker systems or RCA cables - the venue must have their own sound system that I can connect to.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What's your cancellation policy?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>A 50% deposit is required to secure your booking. Please note that deposits are non-refundable in case of cancellation. This ensures I keep your date reserved exclusively for you.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Do you offer MC services?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! I can serve as your MC/hype man during the event, making announcements, engaging with the crowd, and keeping the energy high throughout the night.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Can you play at outdoor venues?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, I can perform at outdoor venues! I've done outdoor events 3-4 times before. However, if there's rain or any situation involving water/moisture, I won't be able to perform as equipment safety is my top priority.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Do you charge for transportation?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>For events within Bekasi area, transportation is included in the package price. However, for events outside Bekasi (such as Jakarta, Depok, Tangerang, etc.), a separate transportation fee applies to cover fuel and travel costs. This will be discussed during booking confirmation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOOKING FORM -->
+    <section id="book">
+        <h2 class="section-title fade-in">Book JayC</h2>
+        <div class="booking-form fade-in">
+            <form id="bookingForm" action="https://formsubmit.co/rojay21c@gmail.com" method="POST">
+                <!-- FormSubmit Configuration -->
+                <input type="hidden" name="_subject" value="New Booking Request from Website!">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">WhatsApp Number *</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+62..." required>
+                </div>
+                <div class="form-group">
+                    <label for="event-type">Event Type *</label>
+                    <select id="event-type" name="event_type" required>
+                        <option value="">Select event type</option>
+                        <option value="house-party">House Party / Private Party</option>
+                        <option value="wedding">Wedding</option>
+                        <option value="corporate">Corporate Event</option>
+                        <option value="club">Club Night</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="event-date">Event Date *</label>
+                    <input type="date" id="event-date" name="event_date" required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Event Location *</label>
+                    <input type="text" id="location" name="location" placeholder="City, Venue name" required>
+                </div>
+                <div class="form-group">
+                    <label for="guests">Number of Guests (Approximate)</label>
+                    <input type="number" id="guests" name="guests" placeholder="e.g., 50">
+                </div>
+                <div class="form-group">
+                    <label for="duration">Duration Needed</label>
+                    <select id="duration" name="duration">
+                        <option value="">Select duration</option>
+                        <option value="1-hour">1 Hour</option>
+                        <option value="2-hours">2 Hours</option>
+                        <option value="3-hours">3 Hours</option>
+                        <option value="4-hours">4+ Hours</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="budget">Budget Range (Optional)</label>
+                    <select id="budget" name="budget">
+                        <option value="">Select budget range</option>
+                        <option value="under-1jt">Under Rp 1 juta</option>
+                        <option value="1-2jt">Rp 1 - 2 juta</option>
+                        <option value="2-3jt">Rp 2 - 3 juta</option>
+                        <option value="3-5jt">Rp 3 - 5 juta</option>
+                        <option value="above-5jt">Above Rp 5 juta</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Additional Details</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Tell me more about your event, music preferences, special requests, etc."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Booking Request</button>
+                <p style="text-align: center; margin-top: 1.5rem; color: var(--text-secondary); font-size: 0.95rem;">
+                    📧 I'll respond within 24 hours to confirm availability and discuss details!
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2 class="section-title fade-in">Connect With Me</h2>
+        <div class="fade-in" style="text-align: center; margin-bottom: 2rem;">
+            <p style="font-size: 1.3rem; color: var(--text-secondary);">
+                Follow my journey and stay updated with my latest mixes!
+            </p>
+        </div>
+        <div class="social-links">
+            <div class="social-item">
+                <a href="https://www.instagram.com/mrhajifph_/" class="social-link" title="Instagram" target="_blank">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <span class="social-label">Instagram</span>
+            </div>
+            <div class="social-item">
+                <a href="https://soundcloud.com/rhaji-firdaus" class="social-link" title="SoundCloud" target="_blank">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.175 12.225c-.051 0-.094.046-.101.1l-.233 2.154.233 2.105c.007.058.05.098.101.098.05 0 .09-.04.099-.098l.255-2.105-.27-2.154c0-.057-.045-.1-.09-.1m-.899.828c-.051 0-.09.04-.099.099l-.135 1.274.135 1.223c0 .057.048.098.099.098.05 0 .09-.04.098-.098l.157-1.223-.157-1.274c-.008-.057-.047-.099-.098-.099m1.753-1.223c-.063 0-.108.046-.116.109l-.201 2.03.201 1.912c.008.063.053.11.116.11.061 0 .107-.047.114-.11l.227-1.912-.227-2.03c-.007-.063-.053-.109-.114-.109m.876-.137c-.065 0-.115.056-.122.126l-.193 2.166.193 2.016c.007.07.057.125.122.125.066 0 .115-.055.122-.125l.211-2.016-.211-2.166c-.007-.07-.056-.126-.122-.126m.876.302c-.074 0-.13.057-.136.136l-.171 1.864.171 1.867c.007.08.062.136.136.136.074 0 .132-.056.137-.136l.189-1.867-.189-1.864c-.005-.079-.063-.136-.137-.136m.884.164c-.082 0-.145.062-.15.148l-.157 1.7.157 1.696c.005.084.068.146.15.146.084 0 .146-.062.15-.146l.174-1.696-.174-1.7c-.004-.086-.066-.148-.15-.148m.902.226c-.09 0-.158.068-.163.158l-.145 1.473.145 1.45c.005.094.073.159.163.159.09 0 .157-.065.162-.159l.162-1.45-.162-1.473c-.005-.09-.072-.158-.162-.158m.902.335c-.1 0-.173.075-.178.177l-.132 1.138.132 1.123c.005.102.078.176.178.176.099 0 .172-.074.177-.176l.148-1.123-.148-1.138c-.005-.102-.078-.177-.177-.177m.937.558c-.106 0-.184.08-.189.188l-.121.58.121.577c.005.107.083.187.189.187.104 0 .182-.08.188-.187l.135-.577-.135-.58c-.006-.107-.084-.188-.188-.188m9.396-2.341c-.37 0-.729.05-1.068.145-.206-4.283-3.717-7.699-8.039-7.699-.811 0-1.595.126-2.333.362-.173.055-.218.13-.218.29v10.74c0 .162.075.237.237.237h11.421c1.935 0 3.503-1.581 3.503-3.528 0-1.948-1.568-3.527-3.503-3.527"/>
+                    </svg>
+                </a>
+                <span class="social-label">SoundCloud</span>
+            </div>
+            <div class="social-item">
+                <a href="https://www.tiktok.com/@ch1ll.j4y?is_from_webapp=1&sender_device=pc" class="social-link" title="TikTok" target="_blank">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                    </svg>
+                </a>
+                <span class="social-label">TikTok</span>
+            </div>
+            <div class="social-item">
+                <a href="mailto:rojay21c@gmail.com" class="social-link" title="Email">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+                <span class="social-label">Email</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 JayC - Professional DJ Services. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                cursorFollower.style.left = e.clientX + 'px';
+                cursorFollower.style.top = e.clientY + 'px';
+            }, 100);
+        });
+
+        document.querySelectorAll('a, button').forEach(elem => {
+            elem.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'scale(1.5)';
+                cursorFollower.style.transform = 'scale(1.5)';
+            });
+            elem.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'scale(1)';
+                cursorFollower.style.transform = 'scale(1)';
+            });
+        });
+
+        // Particles
+        function createParticles() {
+            const hero = document.querySelector('.hero');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                hero.appendChild(particle);
+            }
+        }
+        createParticles();
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Theme Toggle Functionality with System Preference Detection
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to system preference
+        let currentTheme = localStorage.getItem('theme');
+        
+        // If no saved preference, detect system preference
+        if (!currentTheme) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+                currentTheme = 'light';
+            } else {
+                currentTheme = 'dark';
+            }
+        }
+        
+        html.setAttribute('data-theme', currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            // Only auto-change if user hasn't manually set a preference
+            if (!localStorage.getItem('theme')) {
+                const newTheme = e.matches ? 'dark' : 'light';
+                html.setAttribute('data-theme', newTheme);
+            }
+        });
+
+        // Gallery Slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(n) {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active', 'prev', 'next');
+                
+                if (index === n) {
+                    slide.classList.add('active');
+                } else if (index === (n - 1 + slides.length) % slides.length) {
+                    slide.classList.add('prev');
+                } else if (index === (n + 1) % slides.length) {
+                    slide.classList.add('next');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Auto slide
+        setInterval(nextSlide, 5000);
+
+        // Click to advance
+        slides.forEach((slide, index) => {
+            slide.addEventListener('click', () => {
+                if (!slide.classList.contains('active')) {
+                    currentSlide = index;
+                    showSlide(currentSlide);
+                }
+            });
+        });
+
+        // FAQ Toggle
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
